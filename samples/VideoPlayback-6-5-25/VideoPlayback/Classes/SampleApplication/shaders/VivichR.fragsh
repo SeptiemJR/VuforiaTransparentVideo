@@ -1,0 +1,20 @@
+/*===============================================================================
+ Created by Vivich Ratanamolanon on 15/12/2560 BE.
+ iOS Developer from Thailand
+ 
+ For all people in the world.
+ ===============================================================================*/
+
+precision mediump float;
+varying vec2 v_texCoord;
+uniform sampler2D u_texture;
+
+void main (void)
+{
+    vec4 tex = texture2D(u_texture, v_texCoord);
+    gl_FragColor = tex;
+   if((tex.g > tex.r * 1.1) && (tex.g > tex.b * 1.1) && (tex.g > 0.2))
+   {
+       gl_FragColor.a = 0.0;
+   }
+}
